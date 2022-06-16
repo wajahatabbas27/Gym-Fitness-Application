@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# Fitness Exercise React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- this is a fitness exercise website, which will fetch data from the api from the rapi api and we are building the forum for the exercise!
 
-## Available Scripts
+- we will use rapid api to show the data of the api's which are coming
+- RapidAPI ExerciseDB - https://rapidapi.com/justin-WFnsXH_t6...
+- RapidAPI YouTube Search - https://rapidapi.com/h0p3rwe/api/yout...
 
-In the project directory, you can run:
+## depencies to install
 
-### `npm start`
+- npm install --legacy-peer-deps
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Using routes to route between our home page and the exercise detail page in our application
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- import the routes from react-router-dom
 
-### `npm test`
+import { Route, Routes } from "react-router-dom";
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- This is how we route in app.js
 
-### `npm run build`
+  <Routes>
+    <Route path='/' element={<Home />} />
+    <Route path='/exercise/:id' element={<ExerciseDetail />} />
+  </Routes>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- To complete the router process we need to wrap the App component with browser router;
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+import { BrowserRouter } from "react-router-dom";
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+root.render(
+<BrowserRouter>
+<App />
+</BrowserRouter>
+);
 
-### `npm run eject`
+- we also have link in the react-router-dom as well which we will be using to link the routes.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  import { Link } from "react-router-dom";
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## material-ui component:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Box - we used the box to wrap the whole application
+- Stack - we are using the stack in the navbar
+- Typography - instead of using the p (paragraph) tag we use the typography which has some extra styles as well
+- Button - using mui button which has the property called variant-contained using this else i can change it as well, cannot use the custom color in the button
+- sx - it is used to style things like we do in css but in the material ui component we can just open up the sx attribute and style there as well for responsive ui for lg,md and sm screens, we can also open up the objects where we will make it responsive actually
