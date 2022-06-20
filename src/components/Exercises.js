@@ -3,6 +3,7 @@ import { Stack, Box, Typography } from "@mui/material";
 import Pagination from "@mui/material/Pagination";
 import { exerciseOptions, fetchData } from "../utils/fetchData";
 import ExerciseCard from "./ExerciseCard";
+import BodyPart from "./BodyPart";
 
 const Exercises = ({ exercises, setExercises, bodyPart }) => {
   const [currentPage, setcurrentPage] = useState(1);
@@ -29,6 +30,31 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
     //aur jb jae to window screen ke top pe bhi chala jae yh
     window.scrollTo({ top: "1800", behavior: "smooth" });
   };
+
+  // When clicking the category we must go to the exercises when we click the bodypart
+  // so here in the useEffect we will be setting the exercises to the bodypart that is selected
+  //the last part which we have given is the bodyPart, it must be changed everytime, the body part changes.
+  useEffect(() => {
+    const fetchExerciseData = async () => {
+      let exerciseData = [];
+      if (BodyPart === "all") {
+        exerciseData = await fetchData(
+          "https://exercisedb.p.rapidapi.com/exercises",
+          exerciseOptions
+        );
+      } else {
+        exerciseData = await fetchData(
+          `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`,
+          exerciseOptions
+        );
+      }
+
+      setExercises(exerciseData);
+    };
+
+    //calling the above function
+    fetchExerciseData();
+  }, [bodyPart]);
 
   // console.log(exercises);
   return (
