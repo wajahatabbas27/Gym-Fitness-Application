@@ -73,3 +73,19 @@ headers: {
 ### Environment Variable
 
 - created the environment varible for the key of rapid api
+
+## Pagination
+
+- As the exercise data is so huge in number, we must need to apply pagination on our page and we are applying it by using the material-ui
+- we want differnt pages as data is huge so we used the pagination technique and called the component from the m-ui
+
+<!--
+ <Pagination
+            color='standard'
+            shape='rounded'
+            defaultPage={1}
+            count={Math.ceil(exercises.length / exercisePerPage)}
+            page={currentPage} //this is the page where we are standing at this time
+            onChange={paginate}
+            size='large'
+          /> -->

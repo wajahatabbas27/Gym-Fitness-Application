@@ -35,7 +35,7 @@ const SearchExercises = ({ bodyPart, setBodyPart, setExercises }) => {
         "https://exercisedb.p.rapidapi.com/exercises",
         exerciseOptions
       );
-      console.log(exerciseData);
+      // console.log(exerciseData);
 
       //applything filter method on the data which is coming from the api according to the search request which is coming, and we give four options to search
       //searching the data and saving to the state so we can use it and making the search to empty as well
