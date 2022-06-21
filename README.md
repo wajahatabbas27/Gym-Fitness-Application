@@ -1,4 +1,10 @@
-# Fitness Exercise React App
+# Wajahat's Fitness Gym
+
+- check the website:
+
+https://wajahats-fitness-gym.netlify.app/
+
+## Fitness Exercise React App
 
 - this is a fitness exercise website, which will fetch data from the api from the rapi api and we are building the forum for the exercise!
 
