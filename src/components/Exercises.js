@@ -3,7 +3,6 @@ import { Stack, Box, Typography } from "@mui/material";
 import Pagination from "@mui/material/Pagination";
 import { exerciseOptions, fetchData } from "../utils/fetchData";
 import ExerciseCard from "./ExerciseCard";
-import BodyPart from "./BodyPart";
 
 const Exercises = ({ exercises, setExercises, bodyPart }) => {
   const [currentPage, setcurrentPage] = useState(1);
@@ -37,7 +36,7 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
   useEffect(() => {
     const fetchExerciseData = async () => {
       let exerciseData = [];
-      if (BodyPart === "all") {
+      if (bodyPart === "all") {
         exerciseData = await fetchData(
           "https://exercisedb.p.rapidapi.com/exercises",
           exerciseOptions
@@ -54,6 +53,8 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
 
     //calling the above function
     fetchExerciseData();
+
+    // eslint-disable-next-line
   }, [bodyPart]);
 
   // console.log(exercises);
