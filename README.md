@@ -89,3 +89,13 @@ headers: {
             onChange={paginate}
             size='large'
           /> -->
+
+## loader component
+
+- creating the loader component as everytime we fetch the api the application crashes, therefore we must solve the issue by providing two condition if true so show the data else show the spinner
+
+- import { InfinitySpin } from "react-loader-spinner";
+
+- It will allow it to spin as somthing is loading and its showing infinityspin as imported
+
+- calling the loader in the similarexercises component - because if we donot have the fetched data we will going to show the loader overthere

@@ -9,8 +9,11 @@ import SimilarExercises from "../components/SimilarExercises";
 const ExerciseDetail = () => {
   const [exerciseDetail, setExerciseDetail] = useState({});
   const [exerciseVideos, setExerciseVideos] = useState([]);
+  const [targetMuscleExercises, setTargetMuscleExercises] = useState([]);
+  const [equipmentExercises, setEquipmentExercises] = useState([]);
 
   //use params to get the id of the dynamic routed page
+  //js cheez ka detail page khulega usi ki id leke aega yh params se aur usko use krrhe hain hm is page mein
   const { id } = useParams();
 
   //useeffect function, it must be everytime functional when the id changes useEffect hook will be implemented
@@ -36,6 +39,22 @@ const ExerciseDetail = () => {
 
       //setting the state to be passed in the other component as the props
       setExerciseVideos(exerciseVideosData.contents);
+
+      //target muscle exercise data fetching the api
+      const targetMuscleExerciseData = await fetchData(
+        `${exerciseDbUrl}/exercises/target/${exerciseDetailData.target}`,
+        exerciseOptions
+      );
+      //setting the state to send as the props
+      setTargetMuscleExercises(targetMuscleExerciseData);
+
+      //equipment muscle exercise data fetching the api
+      const equipmentExerciseData = await fetchData(
+        `${exerciseDbUrl}/exercises/equipment/${exerciseDetailData.equipment}`,
+        exerciseOptions
+      );
+      //setting the state to send the data as the props
+      setEquipmentExercises(equipmentExerciseData);
     };
     fetchExercisesData();
   }, [id]);
@@ -47,7 +66,10 @@ const ExerciseDetail = () => {
         exerciseVideos={exerciseVideos}
         name={exerciseDetail.name}
       />
-      <SimilarExercises />
+      <SimilarExercises
+        targetMuscleExercises={targetMuscleExercises}
+        equipmentExercises={equipmentExercises}
+      />
     </Box>
   );
 };
